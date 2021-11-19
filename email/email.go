@@ -188,6 +188,8 @@ func (m *Message) Bytes() []byte {
 			b := make([]byte, base64.StdEncoding.EncodedLen(len(v.Content)))
 			base64.StdEncoding.Encode(b, v.Content)
 			buf.Write(b)
+
+			buf.WriteString("\r\n")
 		}
 	}
 
